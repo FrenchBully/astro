@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import Nav from './Nav'
+
+import kbLogo from '../../public/images/kb-logo.svg'
+---
+<div class="header">
+  <div class="logo">
+    <a href="/">
+      <Image src={kbLogo} alt="killer Robot Logo" loading="eager" />
+    </a>
+  </div>
+  <Nav client:visible/>
+</div>
+
+<style>
+	.header {
+		display: flex;
+		justify-content: space-between;
+	}
+  .logo {
+    padding: 15px;
+  }
+</style>
