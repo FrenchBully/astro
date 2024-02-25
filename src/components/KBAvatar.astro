@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+import v1 from '../../public/images/avatars/v1.png'
+import v2 from '../../public/images/avatars/v2.png'
+import v3 from '../../public/images/avatars/v3.png'
+import v4 from '../../public/images/avatars/v4.png'
+import v5 from '../../public/images/avatars/v5.png'
+---
+<div class="header">
+  <div class="avatar-container">
+      <Image src={v1} width={v1.width / 2}  alt="killer Robot Logo" loading="eager" />
+  </div>
+</div>
+
+<style>
+	.avatar-container {
+		display: flex;
+		justify-content: center;
+	}
+
+</style>

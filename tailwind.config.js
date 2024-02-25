@@ -9,10 +9,6 @@ module.exports = {
   ],
   prefix: 'tw-',
   theme: {
-    colors: {
-      white: '#fff',
-      blue: '#1fb6ff',
-    },
     container: {
       center: true,
       padding: '2rem',
@@ -22,6 +18,8 @@ module.exports = {
     },
     extend: {
       colors: {
+        white: '#fff',
+        blue: '#1fb6ff',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

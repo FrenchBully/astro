@@ -1,16 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import KBAvatar from '@components//KBAvatar.astro';
+import KBInput from '@components/ui/KBInput';
+import Card from '@components/Card.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Homepage">
 	<main>
-
-		<!-- <p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p> -->
-
+		<KBAvatar />
+		<div class="container">
+			<KBInput css="tw-rounded-full tw-w-96" placeholder="We're Killer Robot ask us about AI stuff"/>
+		</div>
+		<div class="prompt-cards">
+			<Card href="#" title="Tell me a fact about AI" body="Can AI make me cooler?"/>
+			<Card href="#" title="Ask about the scary stuff" body="Will AI steal my job?"/>
+		</div>
+		<p id="bg-cta">CHANGE BACKGROUND</p>
 	</main>
 </Layout>
 
@@ -19,6 +24,7 @@ import Card from '../components/Card.astro';
 		margin: auto;
 		padding: 1rem;
 		width: 800px;
+		height: 100vh;
 		max-width: calc(100% - 2rem);
 		color: white;
 		font-size: 20px;
@@ -70,5 +76,23 @@ import Card from '../components/Card.astro';
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 2rem;
 		padding: 0;
+	}
+	.container {
+		display: flex;
+		justify-content: center;
+		padding: 10px;
+	}
+	.prompt-cards {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+	#bg-cta {
+		display: flex;
+		justify-content: center;
+		font-size: 10px;
+		color: rgba(37, 46, 219, 0.778);
+		padding-top: 20px;
+		cursor: pointer;
 	}
 </style>

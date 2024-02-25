@@ -1,5 +1,15 @@
 ---
 import Header from '@components/Header.astro'
+
+import bgImage1 from '../../public/images/bg-images/1.png'
+import bgImage2 from '../../public/images/bg-images/2.jpg'
+import bgImage3 from '../../public/images/bg-images/3.jpg'
+import bgImage4 from '../../public/images/bg-images/4.png'
+import bgImage5 from '../../public/images/bg-images/5.jpg'
+import bgImage6 from '../../public/images/bg-images/6.png'
+
+const mainBgImg = `url(${bgImage1.src})`
+
 interface Props {
 	title: string;
 }
@@ -22,8 +32,9 @@ const { title } = Astro.props;
 		<slot />
 	</body>
 </html>
-<style is:global>
+<style is:global define:vars={{ mainBgImg }}>
 	:root {
+
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
 		--accent-dark: 49, 10, 101;
@@ -37,7 +48,10 @@ const { title } = Astro.props;
 	html {
 		font-family: system-ui, sans-serif;
 		background: #13151a;
-		background-size: 224px;
+		background-size: 100%;
+		background-image: var(--mainBgImg);
+		background-size: fill;
+		background-repeat: no-repeat;
 	}
 	code {
 		font-family:
@@ -50,4 +64,34 @@ const { title } = Astro.props;
 			Courier New,
 			monospace;
 	}
+
+	input[type="text"] {
+		color: #000;
+		padding: 5px 10px;
+		font-size: 15px;
+	}
+::-webkit-input-placeholder {
+  font-size: 15px;
+}
+::-moz-placeholder {
+  font-size: 15px;
+}
+:-ms-input-placeholder {
+  font-size: 15px;
+}
+::placeholder {
+  font-size: 15px;
+}
 </style>
+<script define:vars={{ bgImage1, bgImage2, bgImage3, bgImage4, bgImage5, bgImage6 }}>
+  const bgImg = document.querySelector('html');
+  const changeBgImg = document.querySelector('#bg-cta');
+	const bgImages = [bgImage1, bgImage2, bgImage3, bgImage4, bgImage5, bgImage6]
+	let index = 0
+  changeBgImg && changeBgImg.addEventListener('click', (e) => {
+		index = (index +1) % bgImages.length;
+		e.preventDefault();
+		bgImg.style.backgroundImage = `url(${ bgImages[index].src })`
+	});
+
+</script>
